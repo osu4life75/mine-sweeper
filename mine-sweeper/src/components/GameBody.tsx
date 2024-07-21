@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Tile from "./Tile";
 
-export default function GameBody() {
-  let t: string[] = [];
-  function populateTiles(limit: number = 60) {
+const GameBody: React.FC = () => {
+  // State to manage the tiles
+  const [tiles, setTiles] = useState<string[]>([]);
+
+  // Function to populate tiles
+  const populateTiles = (limit: number = 60): void => {
     console.log("populate", limit);
+    const newTiles: string[] = [];
     for (let i = 0; i < limit; i++) {
-      t.push("t");
+      newTiles.push("t");
     }
-  }
+    setTiles(newTiles); // Update the state with the new tiles
+  };
 
   return (
     <>
@@ -18,10 +23,10 @@ export default function GameBody() {
         </div>
       </div>
       <div className="row">
-        {t && t.length > 0 ? (
-          t.map((Tile) => (
-            <div>
-              <Tile/>
+        {tiles.length > 0 ? (
+          tiles.map((tile, index) => (
+            <div key={index} className="col">
+              <Tile />
             </div>
           ))
         ) : (
@@ -30,4 +35,6 @@ export default function GameBody() {
       </div>
     </>
   );
-}
+};
+
+export default GameBody;
