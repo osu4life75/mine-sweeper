@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import Header from "./Header";
+import GameBody from "./GameBody";
 
 export default function Game() {
   return (
-    <div>Game</div>
-  )
+    <>
+      <Header />
+      <GameBody />
+    </>
+  );
 }
