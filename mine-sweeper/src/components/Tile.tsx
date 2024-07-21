@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import { forEachChild } from "typescript";
 
 export default function Tile() {
+ 
+ 
+
   return (
-    <div>Tile</div>
-  )
+    <>
+      <div>T</div>
+      
+    </>
+  );
 }
